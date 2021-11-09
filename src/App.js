@@ -6,6 +6,7 @@ import Explore from './Pages/Explore/Explore';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
+import Perchase from './Pages/Perchase/Perchase';
 import PrivateRoute from './Routes/PrivateRoute/PrivateRoute';
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
             </Route>
             <PrivateRoute path="/dashboard">
                 <Dashboard/>
+            </PrivateRoute>
+            <PrivateRoute path="/perchase/:id">
+                <Perchase/>
             </PrivateRoute>
           </Switch>
         </BrowserRouter>
