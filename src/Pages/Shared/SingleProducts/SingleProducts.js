@@ -6,7 +6,7 @@ const SingleProducts = ({product}) => {
     const {price , name ,img , des , _id} = product
     return (
         <Grid item xs={1} sm={3} md={4}>
-            <img src={img} alt="" />
+            <img src={img} alt="" style={{width:"100%"}}/>
             <h3>Name : {name}</h3>
             <p>Price : $ {price}</p>
             <p>Description : {des}</p>
