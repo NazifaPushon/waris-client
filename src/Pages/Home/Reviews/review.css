@@ -1,0 +1,15 @@
+.review {
+  background-image: url("https://i.ibb.co/rGB4Y82/testimonial.jpg");
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  color: black;
+}
+.single-review {
+  background-color: rgba(255, 255, 255, 0.719);
+  font-size: 18px;
+}
+
+/* https://i.ibb.co/6NcwtDJ/slider3.jpg */

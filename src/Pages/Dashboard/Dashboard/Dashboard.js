@@ -25,6 +25,7 @@ import AdminRoute from '../../../Routes/AdminRoute/AdminRoute';
 import AddProduct from '../AddProduct/AddProduct';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import ManageOrder from '../ManageOrders/ManageOrder';
+import ManageProducts from '../ManageProducts/ManageProducts';
 import MyOrders from '../MyOrders/MyOrders';
 import Payment from '../Payment/Payment';
 import Review from '../Review/Review';
@@ -58,6 +59,9 @@ function Dashboard(props) {
           </ListItem>
           <ListItem>
             <ListItemText><Link to={`${url}/makeAdmin`}>Make Admin</Link></ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemText><Link to={`${url}/manageProducts`}>Manage Products</Link></ListItemText>
           </ListItem>
           </List>
         : <List>
@@ -168,6 +172,9 @@ function Dashboard(props) {
         </AdminRoute>
         <AdminRoute path={`${path}/makeAdmin`}>
           <MakeAdmin/>
+        </AdminRoute>
+        <AdminRoute path={`${path}/manageProducts`}>
+          <ManageProducts/>
         </AdminRoute>
       </Switch>
       </Box>

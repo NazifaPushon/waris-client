@@ -10,6 +10,7 @@ const Home = () => {
             <Header/>
             <Banner/>
             <Products isLimited={true}/>
+            <hr />
             <Reviews/>
             <h1>This is home page</h1>
         </div>

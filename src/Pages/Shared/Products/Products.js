@@ -1,5 +1,4 @@
-import { Grid } from '@mui/material';
-import { Box } from '@mui/system';
+import { Container, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import SingleProducts from '../SingleProducts/SingleProducts';
 
@@ -21,14 +20,15 @@ const Products = ({isLimited}) => {
         })
     } , [isLimited])
     return (
-        <Box>
+        <Container className="my-5">
+            <Typography variant="h2" gutterBottom style={{fontFamily:'Jost, sans-serif' , fontWeight:"500"}} className="text-center ">Our Watches</Typography>
             <Grid container spacing={3}>
                 {
                     products.map(product => <SingleProducts product={product} key={product._id}/>)
                 }
                 
             </Grid>
-        </Box>
+        </Container>
     );
 };
 
