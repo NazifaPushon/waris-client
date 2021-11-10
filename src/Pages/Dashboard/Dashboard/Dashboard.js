@@ -63,7 +63,7 @@ function Dashboard(props) {
         : <List>
           
             <ListItem>
-              <ListItemText><Link to={`${url}`}>Your Order</Link></ListItemText>
+              <ListItemText><Link to={`${url}`}>My Order</Link></ListItemText>
             </ListItem>
             <ListItem>
             <ListItemText><Link to={`${url}/payment`}>Payment</Link></ListItemText>

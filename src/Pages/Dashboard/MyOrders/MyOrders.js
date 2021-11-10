@@ -11,7 +11,7 @@ const MyOrders = () => {
         fetch(`http://localhost:5000/orders/${user.email}`)
         .then(res => res.json())
         .then(data => setOrders(data))
-    } , [user])
+    } , [user.email])
 
     const handleClick = (id) => {
         Swal.fire({
@@ -26,7 +26,7 @@ const MyOrders = () => {
                 .then(data => {
                     console.log(data)
                     Swal.fire('Your booking is deleted', '', 'success')
-                    const newMyOrder = orders.filter(booking => booking._id !== id)
+                    const newMyOrder = orders.filter(order => order._id !== id)
                     setOrders(newMyOrder)
                 })
             } 
