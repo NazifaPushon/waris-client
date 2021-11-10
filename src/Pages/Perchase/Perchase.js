@@ -21,6 +21,7 @@ const Perchase = () => {
     const { id } = useParams();
     const {user} = useAuth()
     const [product, setProduct] = useState({});
+    const {name , price ,des ,img} = product
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     useEffect(() => {
         fetch(`http://localhost:5000/products/${id}`)
@@ -59,7 +60,14 @@ const Perchase = () => {
         <div>
             <Container>
                 <Grid container spacing={2}>
-                    <Grid item xs={12} md={6}></Grid>
+                    <Grid item xs={12} md={6}>
+                        <Box>
+                            <img alt="" src={img}/>
+                            <h3>Name : {name}</h3>
+                            <p>Price : {price}</p>
+                            <p>description : {des}</p>
+                        </Box>
+                    </Grid>
                     <Grid item xs={12} md={6}>
                     <Box
                     sx={{
