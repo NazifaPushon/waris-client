@@ -1,5 +1,5 @@
 import { Button, Container, TextField, Typography } from '@mui/material';
-import { pink } from '@mui/material/colors';
+import { grey } from '@mui/material/colors';
 import { Box } from '@mui/system';
 import React from 'react';
 import { useForm } from 'react-hook-form';
@@ -35,12 +35,12 @@ const AddProduct = () => {
           width: "50%",
           mx: "auto",
           border: 1,
-          borderColor: pink[500],
+          borderColor: grey[900],
           p: "2rem",
         }}
       >
         <Box>
-          <Typography variant="h4">Create Account</Typography>
+          <Typography variant="h4">Add a new product</Typography>
           <form action="" onSubmit={handleSubmit(onSubmit)}>
             <TextField
               id="name"
@@ -82,7 +82,7 @@ const AddProduct = () => {
             {errors.des && <span>Description is required</span>}
             <Button
               color="inherit"
-              style={{ backgroundColor: pink[400] }}
+              style={{ backgroundColor: grey[900] }}
               sx={{ width: 1, color: "white", m: 1, p: 1 }}
               type="submit"
             >

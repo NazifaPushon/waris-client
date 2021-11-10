@@ -1,5 +1,5 @@
 import { Button, Container, TextField, Typography } from "@mui/material";
-import { pink } from "@mui/material/colors";
+import { grey } from "@mui/material/colors";
 import { Box } from "@mui/system";
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -19,13 +19,13 @@ const Login = () => {
         reset()
     }
     return (
-        <Container>
+        <Container className="my-5">
             <Box
                 sx={{
                     width: "50%",
                     mx: "auto",
                     border: 1,
-                    borderColor: pink[500],
+                    borderColor: grey[500],
                     p: "2rem",
                 }}
             >
@@ -58,7 +58,7 @@ const Login = () => {
                     <Button
                         color="inherit"
                         style={{
-                            backgroundColor: pink[400],
+                            backgroundColor: grey[900],
                         }}
                         sx={{
                             width: 1,
@@ -82,7 +82,7 @@ const Login = () => {
                     <NavLink
                         to="/register"
                         style={{
-                            color: pink[500],
+                            color: grey[900],
                         }}
                     >
                         New In here ? Register
@@ -103,14 +103,13 @@ const Login = () => {
                     }}
                     sx={{
                         width: 1,
-                        color: pink[500],
+                        color: grey[900],
                         border: 1,
-                        borderColor: pink[500],
+                        borderColor: grey[900],
                         borderRadius: 16,
                         p: 1,
                     }}
-                    type="submit"
-                    onClick={() => singInWithGoogle(history,location)}
+                    onClick={() => singInWithGoogle(location , history)}
                 >
                     
                     Google Sign In

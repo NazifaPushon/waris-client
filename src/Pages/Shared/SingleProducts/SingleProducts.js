@@ -8,7 +8,7 @@ const SingleProducts = ({product}) => {
     const {price , name ,img , des , _id} = product
     return (
         <Grid item xs={12} sm={6} md={4} className="text-center">
-            <Box className="p-2 border">
+            <Box className="p-2 border h-100">
             <img src={img} alt="" style={{width:"100%"}}/>
             <Box className="p-3">
             <h3 className="my-3" style={{color:grey[800]}}>{name}</h3>

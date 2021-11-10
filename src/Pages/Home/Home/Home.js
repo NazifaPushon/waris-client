@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../../Shared/Header/Header';
 import Products from '../../Shared/Products/Products';
 import Banner from '../Banner/Banner';
+import OfferBanner from '../OfferBanner/OfferBanner';
 import Reviews from '../Reviews/Reviews';
 
 const Home = () => {
@@ -12,7 +13,7 @@ const Home = () => {
             <Products isLimited={true}/>
             <hr />
             <Reviews/>
-            <h1>This is home page</h1>
+            <OfferBanner/>
         </div>
     );
 };

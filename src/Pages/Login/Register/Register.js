@@ -1,5 +1,5 @@
 import { Button, Container, TextField, Typography } from "@mui/material";
-import { pink } from "@mui/material/colors";
+import { grey } from "@mui/material/colors";
 import { Box } from "@mui/system";
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
 const Register = () => {
-    const {registerUser} = useAuth()
+    const {registerUser , singInWithGoogle} = useAuth()
     const history = useHistory()
     const location = useLocation()
     const { register , handleSubmit,  formState: { errors } , reset} = useForm();
@@ -22,13 +22,13 @@ const Register = () => {
         }
     };
   return (
-    <Container>
+    <Container className="my-5">
       <Box
         sx={{
           width: "50%",
           mx: "auto",
           border: 1,
-          borderColor: pink[500],
+          borderColor: grey[900],
           p: "2rem",
         }}
       >
@@ -73,7 +73,7 @@ const Register = () => {
             {errors.password2 && <span>Password is required</span>}
             <Button
               color="inherit"
-              style={{ backgroundColor: pink[400] }}
+              style={{ backgroundColor: grey[900] }}
               sx={{ width: 1, color: "white", m: 1, p: 1 }}
               type="submit"
             >
@@ -81,7 +81,7 @@ const Register = () => {
             </Button>
           </form>
           <Typography variant="p" sx={{ textAlign: "center" }} component="div">
-            <NavLink to="/login" style={{ color: pink[500] }}>
+            <NavLink to="/login" style={{ color: grey[900] }}>
               Already has an account ? login
             </NavLink>
           </Typography>
@@ -93,13 +93,13 @@ const Register = () => {
           style={{ backgroundColor: "white" }}
           sx={{
             width: 1,
-            color: pink[500],
+            color: grey[900],
             border: 1,
-            borderColor: pink[500],
+            borderColor: grey[900],
             borderRadius: 16,
             p: 1,
           }}
-          type="submit"
+          onClick={() => singInWithGoogle(location , history)}
         >
           Google Sign In
         </Button>

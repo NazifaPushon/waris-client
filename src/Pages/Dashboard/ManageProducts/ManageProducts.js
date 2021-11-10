@@ -1,5 +1,6 @@
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/material/Button';
+import { grey } from '@mui/material/colors';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -71,9 +72,9 @@ const ManageProducts = () => {
               <TableCell align="center"><img src={product.img} style={{width:"5rem"}} alt="" /></TableCell>
               <TableCell align="center" sx={style2}>{`${product.des.slice(0,50)}...`}</TableCell>
               <TableCell align="cener">
-              <Button variant="outlined" startIcon={<DeleteIcon />} onClick={() => handleDelete(product._id)}>
-                     Delete
-                </Button>
+              <Button  startIcon={<DeleteIcon />} style={{background:grey[900] , color:"white" ,margin:'0 1rem' ,padding:'0.5rem 1rem'}} color="inherit" onClick={() => handleDelete(product._id)}>
+                     Delete 
+            </Button>
               </TableCell>
             </TableRow>
           ))}

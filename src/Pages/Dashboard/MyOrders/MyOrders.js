@@ -38,7 +38,9 @@ const MyOrders = () => {
             <h3>My Orders</h3>
             <Grid container spacing={2}>
                 {
-                    orders.map(order => <SingleOrder key={order._id} order={order} handleClick = {handleClick}/>)
+                    orders.length > 0 ? 
+                        orders.map(order => <SingleOrder key={order._id} order={order} handleClick = {handleClick}/>) : <h1>You have no order</h1>
+                    
                 }
             </Grid>
         </Container>

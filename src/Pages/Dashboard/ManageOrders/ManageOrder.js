@@ -1,6 +1,7 @@
 import DeleteIcon from '@mui/icons-material/Delete';
 import SystemUpdateAltRoundedIcon from '@mui/icons-material/SystemUpdateAltRounded';
 import Button from '@mui/material/Button';
+import { grey } from '@mui/material/colors';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -67,11 +68,11 @@ const ManageOrder = () => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Order ID</TableCell>
-            <TableCell align="right">Email</TableCell>
-            <TableCell align="right">Product Name</TableCell>
-            <TableCell align="right">status</TableCell>
-            <TableCell align="right">Action</TableCell>
+            <TableCell align="center">Order ID</TableCell>
+            <TableCell align="center">Email</TableCell>
+            <TableCell align="center">Product Name</TableCell>
+            <TableCell align="center">status</TableCell>
+            <TableCell align="center">Action</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -80,17 +81,17 @@ const ManageOrder = () => {
               key={order._id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row" align="center">
                 {order._id}
               </TableCell>
-              <TableCell align="right">{order.email}</TableCell>
-              <TableCell align="right">{order.product.name}</TableCell>
-              <TableCell align="right">{order.status}</TableCell>
-              <TableCell align="right">
-              <Button variant="outlined" startIcon={<DeleteIcon />} onClick={() => handleDelete(order._id)}>
+              <TableCell align="center">{order.email}</TableCell>
+              <TableCell align="center">{order.product.name}</TableCell>
+              <TableCell align="center">{order.status}</TableCell>
+              <TableCell align="center">
+              <Button  style={{background:grey[900] , color:"white" ,margin:' 1rem' , padding:'0.5rem 1rem'}} color="inherit" startIcon={<DeleteIcon />} onClick={() => handleDelete(order._id)}>
                      Delete
                 </Button>
-              <Button variant="outlined" onClick={() => handleUpdate(order._id , order)} startIcon={<SystemUpdateAltRoundedIcon />}>
+              <Button style={{background:grey[900] , color:"white" , margin:' 1rem', padding:'0.5rem 1rem'}} color="inherit" onClick={() => handleUpdate(order._id , order)} startIcon={<SystemUpdateAltRoundedIcon />}>
                      Update Status
                 </Button>
               </TableCell>

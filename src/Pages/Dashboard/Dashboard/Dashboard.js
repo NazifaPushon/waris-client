@@ -1,16 +1,14 @@
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import { Button } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import { grey } from '@mui/material/colors';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -44,50 +42,42 @@ function Dashboard(props) {
   };
 
   const drawer = (
-    <div>
-      <Toolbar />
+    <div className="text-center">
+      <Toolbar/>
       <Divider />
         <List>
-          <Button variant="contained" onClick={() => logout(history)}>Log Out</Button>
+        <Button  style={{background:grey[900] , color:"white" ,margin:'0 1rem', padding:'0.5rem 1rem'}} color="inherit" onClick={() => logout(history)}>
+                     Log Out
+            </Button>
         </List>
         {admin ? <List>
-          <ListItem>
-            <ListItemText><Link to={`${url}`}>Manage User</Link></ListItemText>
+          <ListItem className="text-center">
+            <ListItemText><Link to={`${url}`} className="text-dark">Manage User</Link></ListItemText>
           </ListItem>
-          <ListItem>
-            <ListItemText><Link to={`${url}/addProduct`}>Add Product</Link></ListItemText>
+          <ListItem className="text-center">
+            <ListItemText><Link to={`${url}/addProduct`} className="text-dark">Add Product</Link></ListItemText>
           </ListItem>
-          <ListItem>
-            <ListItemText><Link to={`${url}/makeAdmin`}>Make Admin</Link></ListItemText>
+          <ListItem className="text-center">
+            <ListItemText><Link to={`${url}/makeAdmin`} className="text-dark">Make Admin</Link></ListItemText>
           </ListItem>
-          <ListItem>
-            <ListItemText><Link to={`${url}/manageProducts`}>Manage Products</Link></ListItemText>
+          <ListItem className="text-center">
+            <ListItemText><Link to={`${url}/manageProducts`} className="text-dark">Manage Products</Link></ListItemText>
           </ListItem>
           </List>
         : <List>
           
-            <ListItem>
-              <ListItemText><Link to={`${url}`}>My Order</Link></ListItemText>
+            <ListItem className="text-center">
+              <ListItemText><Link to={`${url}`} className="text-dark">My Order</Link></ListItemText>
             </ListItem>
-            <ListItem>
-            <ListItemText><Link to={`${url}/payment`}>Payment</Link></ListItemText>
+            <ListItem className="text-center">
+            <ListItemText><Link to={`${url}/payment`} className="text-dark">Payment</Link></ListItemText>
             </ListItem>
-            <ListItem>
-            <ListItemText><Link to={`${url}/review`}>Review</Link></ListItemText>
+            <ListItem className="text-center">
+            <ListItemText><Link to={`${url}/review`} className="text-dark">Review</Link></ListItemText>
             </ListItem>
         </List> }
       
       <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
     </div>
   );
 
@@ -101,6 +91,7 @@ function Dashboard(props) {
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
+          background:grey[900]
         }}
       >
         <Toolbar>

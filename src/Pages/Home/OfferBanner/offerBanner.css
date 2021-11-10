@@ -1,0 +1,10 @@
+.offer {
+  background-image: url("https://i.ibb.co/Mk5NjDf/background-1.jpg");
+  width: 100%;
+  min-height: 85vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  color: white;
+}

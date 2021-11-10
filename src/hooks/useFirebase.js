@@ -31,7 +31,7 @@ const useFirebase = () => {
             console.log(data)
             setAdmin(data.admin)
         })
-    } , [user.email])
+    } , [user])
 
     const registerUser = (email, password , name , location , history) => {
         setIsLoading(true)
@@ -68,7 +68,7 @@ const useFirebase = () => {
     }
 
 
-    const googleSignIn = (location, history)  => {
+    const singInWithGoogle = (location, history)  => {
         const googleProvider = new GoogleAuthProvider();
         signInWithPopup(auth,googleProvider)
         .then(result => {
@@ -146,7 +146,7 @@ const useFirebase = () => {
         error,
         admin,
         isLoading,
-        googleSignIn,
+        singInWithGoogle,
         registerUser
     }
 }
