@@ -1,11 +1,13 @@
-import { Button, Container, Grid, Typography } from "@mui/material";
-import { pink } from "@mui/material/colors";
+import { Button, Container, Grid } from "@mui/material";
+import { grey } from "@mui/material/colors";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory, useParams } from "react-router";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import Footer from "../Shared/Footer/Footer";
+import Header from "../Shared/Header/Header";
 
 const Perchase = () => {
     const history = useHistory();
@@ -58,13 +60,14 @@ const Perchase = () => {
     }
     return (
         <div>
-            <Container>
-                <Grid container spacing={2}>
+            <Header/>
+            <Container className="my-5">
+                <Grid container spacing={4}>
                     <Grid item xs={12} md={6}>
-                        <Box>
-                            <img alt="" src={img}/>
-                            <h3>Name : {name}</h3>
-                            <p>Price : {price}</p>
+                        <Box className="p-3 border" style={{fontSize:'18px'}}>
+                            <img alt="" src={img} className="w-100"/>
+                            <h3 className="my-3">Product : {name}</h3>
+                            <p className="fs-5">Price : $ {price}</p>
                             <p>description : {des}</p>
                         </Box>
                     </Grid>
@@ -72,11 +75,11 @@ const Perchase = () => {
                     <Box
                     sx={{
                         border: 1,
-                        borderColor: pink[500],
+                        borderColor: grey[900],
                         p: "2rem",
                     }}
                 >
-                    <Typography variant="h4">Perchase </Typography>
+                    <h1 className="text-center">Perchase </h1>
                     <form action="" onSubmit={handleSubmit(onSubmit)}>
                         <input
                             style={inputStyle}
@@ -110,7 +113,7 @@ const Perchase = () => {
                         <Button
                             color="inherit"
                             style={{
-                                backgroundColor: pink[400],
+                                backgroundColor: grey[900],
                             }}
                             sx={{
                                 width: 1,
@@ -134,6 +137,7 @@ const Perchase = () => {
                     </Grid>
                 </Grid>
             </Container>
+            <Footer/>
         </div>
     );
 };

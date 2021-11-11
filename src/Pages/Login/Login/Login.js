@@ -1,4 +1,4 @@
-import { Button, Container, TextField, Typography } from "@mui/material";
+import { Button, TextField, Typography } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import { Box } from "@mui/system";
 import React from "react";
@@ -19,18 +19,11 @@ const Login = () => {
         reset()
     }
     return (
-        <Container className="my-5">
-            <Box
-                sx={{
-                    width: "50%",
-                    mx: "auto",
-                    border: 1,
-                    borderColor: grey[500],
-                    p: "2rem",
-                }}
-            >
+        <Box className="text-center my-5 px-2" sx={{width:{sm:1 ,md:'50%'} , mx:'auto'}}>
+            <div className="">
+            <Box className="text-center p-5 border border-2 border-dark">
                 <Typography variant="h4">Login </Typography>
-                <form action="" onSubmit={handleSubmit(onSubmit)}>
+                <form action="" onSubmit={handleSubmit(onSubmit)}  >
                     <TextField
                         id="email"
                         label="Email"
@@ -38,7 +31,7 @@ const Login = () => {
                         type="email"
                         sx={{
                             width: 1,
-                            m: 1,
+                            m: 'auto',
                         }}
                         {...register("email" , { required: true })}
                     />
@@ -50,7 +43,7 @@ const Login = () => {
                         type="password"
                         sx={{
                             width: 1,
-                            m: 1,
+                            m: 'auto',
                         }}
                         {...register("password" , { required: true })}
                     />
@@ -63,7 +56,7 @@ const Login = () => {
                         sx={{
                             width: 1,
                             color: "white",
-                            m: 1,
+                            my: 2,
                             p: 1,
                         }}
                         type="submit"
@@ -115,7 +108,8 @@ const Login = () => {
                     Google Sign In
                 </Button>
             </Box>
-        </Container>
+            </div>
+        </Box>
     );
 };
 

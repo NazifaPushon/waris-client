@@ -71,7 +71,7 @@ const ManageProducts = () => {
               <TableCell align="center" sx={style2}>{product.price}</TableCell>
               <TableCell align="center"><img src={product.img} style={{width:"5rem"}} alt="" /></TableCell>
               <TableCell align="center" sx={style2}>{`${product.des.slice(0,50)}...`}</TableCell>
-              <TableCell align="cener">
+              <TableCell align="center">
               <Button  startIcon={<DeleteIcon />} style={{background:grey[900] , color:"white" ,margin:'0 1rem' ,padding:'0.5rem 1rem'}} color="inherit" onClick={() => handleDelete(product._id)}>
                      Delete 
             </Button>

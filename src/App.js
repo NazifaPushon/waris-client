@@ -6,6 +6,7 @@ import Explore from './Pages/Explore/Explore';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
+import NotFound from './Pages/NotFound/NotFound';
 import Perchase from './Pages/Perchase/Perchase';
 import PrivateRoute from './Routes/PrivateRoute/PrivateRoute';
 
@@ -36,6 +37,9 @@ function App() {
             <PrivateRoute path="/perchase/:id">
                 <Perchase/>
             </PrivateRoute>
+            <Route path="*">
+                <NotFound/>
+            </Route>
           </Switch>
         </BrowserRouter>
       </AuthProvider>

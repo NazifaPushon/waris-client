@@ -48,3 +48,13 @@ a {
   color: black;
   transition: all 0.5s;
 }
+.button3 {
+  border: 3px solid black;
+  padding: 0.5rem 2rem;
+  color: black;
+  background-color: white;
+}
+.button3 a {
+  text-decoration: none;
+  color: black;
+}

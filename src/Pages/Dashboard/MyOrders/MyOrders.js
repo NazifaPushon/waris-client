@@ -34,12 +34,12 @@ const MyOrders = () => {
         
     }
     return (
-        <Container>
-            <h3>My Orders</h3>
-            <Grid container spacing={2}>
+        <Container >
+            <h1 className="text-center">My Orders</h1>
+            <Grid container spacing={2} className="my-5">
                 {
                     orders.length > 0 ? 
-                        orders.map(order => <SingleOrder key={order._id} order={order} handleClick = {handleClick}/>) : <h1>You have no order</h1>
+                        orders.map(order => <SingleOrder key={order._id} order={order} handleClick = {handleClick}/>) : <h1 className="my-5 text-center">You have no order</h1>
                     
                 }
             </Grid>

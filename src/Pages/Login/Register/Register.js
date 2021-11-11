@@ -1,4 +1,4 @@
-import { Button, Container, TextField, Typography } from "@mui/material";
+import { Button, TextField, Typography } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import { Box } from "@mui/system";
 import React from "react";
@@ -22,25 +22,23 @@ const Register = () => {
         }
     };
   return (
-    <Container className="my-5">
+    <Box className="my-5 px-2" sx={{width:{sm:1 ,md:'50%'} , mx:'auto'}}>
       <Box
         sx={{
-          width: "50%",
-          mx: "auto",
           border: 1,
           borderColor: grey[900],
           p: "2rem",
         }}
       >
-        <Box>
+        <Box className="text-center">
           <Typography variant="h4">Create Account</Typography>
-          <form action="" onSubmit={handleSubmit(onSubmit)}>
+          <form action="" onSubmit={handleSubmit(onSubmit)} className="text-center ">
             <TextField
               id="name"
               label="User Name"
               variant="standard"
               type="text"
-              sx={{ width: 1, m: 1 }}
+              sx={{ width: 1 }}
               {...register("displayName" , { required: true })}
             />
             {errors.displayName && <span>User name is required</span>}
@@ -49,7 +47,7 @@ const Register = () => {
               label="Email"
               variant="standard"
               type="email"
-              sx={{ width: 1, m: 1 }}
+              sx={{ width: 1 }}
               {...register("email" , { required: true })}
             />
             {errors.email && <span>Email is required</span>}
@@ -58,7 +56,7 @@ const Register = () => {
               label="Password"
               variant="standard"
               type="password"
-              sx={{ width: 1, m: 1 }}
+              sx={{ width: 1 }}
               {...register("password" , { required: true })}
             />
             {errors.password && <span>Password is required</span>}
@@ -67,14 +65,14 @@ const Register = () => {
               label="Confirem Password"
               variant="standard"
               type="password"
-              sx={{ width: 1, m: 1 }}
+              sx={{ width: 1 }}
               {...register("password2" , { required: true })}
             />
             {errors.password2 && <span>Password is required</span>}
             <Button
               color="inherit"
               style={{ backgroundColor: grey[900] }}
-              sx={{ width: 1, color: "white", m: 1, p: 1 }}
+              sx={{ width: 1, color: "white", my: 2, p: 1 }}
               type="submit"
             >
               Register
@@ -104,7 +102,7 @@ const Register = () => {
           Google Sign In
         </Button>
       </Box>
-    </Container>
+    </Box>
   );
 };
 

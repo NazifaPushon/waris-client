@@ -49,8 +49,11 @@ function Dashboard(props) {
         <Button  style={{background:grey[900] , color:"white" ,margin:'0 1rem', padding:'0.5rem 1rem'}} color="inherit" onClick={() => logout(history)}>
                      Log Out
             </Button>
-        </List>
-        {admin ? <List>
+            <ListItem className="text-center">
+            <ListItemText><Link to='/' className="text-dark">Home</Link></ListItemText>
+          </ListItem>
+        
+        {admin ? <>
           <ListItem className="text-center">
             <ListItemText><Link to={`${url}`} className="text-dark">Manage User</Link></ListItemText>
           </ListItem>
@@ -63,8 +66,8 @@ function Dashboard(props) {
           <ListItem className="text-center">
             <ListItemText><Link to={`${url}/manageProducts`} className="text-dark">Manage Products</Link></ListItemText>
           </ListItem>
-          </List>
-        : <List>
+          </>
+        : <>
           
             <ListItem className="text-center">
               <ListItemText><Link to={`${url}`} className="text-dark">My Order</Link></ListItemText>
@@ -75,8 +78,8 @@ function Dashboard(props) {
             <ListItem className="text-center">
             <ListItemText><Link to={`${url}/review`} className="text-dark">Review</Link></ListItemText>
             </ListItem>
-        </List> }
-      
+        </> }
+        </List>
       <Divider />
     </div>
   );
@@ -84,7 +87,8 @@ function Dashboard(props) {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box>
+      <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -169,6 +173,7 @@ function Dashboard(props) {
         </AdminRoute>
       </Switch>
       </Box>
+    </Box>
     </Box>
   );
 }

@@ -28,12 +28,10 @@ const AddProduct = () => {
         })
     }
     return (
-        <div>
+        <Box sx={{width:{sm:1 ,md:'50%'} , mx:'auto'}}>
        <Container>
       <Box
         sx={{
-          width: "50%",
-          mx: "auto",
           border: 1,
           borderColor: grey[900],
           p: "2rem",
@@ -92,7 +90,7 @@ const AddProduct = () => {
         </Box>
       </Box>
     </Container>
-        </div>
+        </Box>
     );
 };
 
