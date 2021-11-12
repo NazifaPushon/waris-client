@@ -10,9 +10,9 @@ import BackBtn from "../Shared/BackBtn/BackBtn";
 import Footer from "../Shared/Footer/Footer";
 import Header from "../Shared/Header/Header";
 
-//this is a perchase page 
-//use to perchase a watch
-const Perchase = () => {
+//this is a Purchase page 
+//use to Purchase a watch
+const Purchase = () => {
     const history = useHistory();
     const inputStyle = {
         width: '80%',
@@ -86,7 +86,7 @@ const Perchase = () => {
                         p: "2rem",
                     }}
                 >
-                    <h1 className="text-center">Perchase </h1>
+                    <h1 className="text-center">Purchase </h1>
                     <form action="" onSubmit={handleSubmit(onSubmit)}>
                         <input
                             style={inputStyle}
@@ -150,4 +150,4 @@ const Perchase = () => {
     );
 };
 
-export default Perchase;
+export default Purchase;

@@ -56,7 +56,7 @@ function Dashboard(props) {
             <ListItemText><Link to={`${url}`} className="text-dark">Manage All Orders</Link></ListItemText>
           </ListItem>
           <ListItem className="text-center">
-            <ListItemText><Link to={`${url}/addProduct`} className="text-dark">Add Product</Link></ListItemText>
+            <ListItemText><Link to={`${url}/addProduct`} className="text-dark">Add A Product</Link></ListItemText>
           </ListItem>
           <ListItem className="text-center">
             <ListItemText><Link to={`${url}/makeAdmin`} className="text-dark">Make Admin</Link></ListItemText>
@@ -107,7 +107,7 @@ function Dashboard(props) {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap component="div">
-              Responsive drawer
+              Dashboard
             </Typography>
           </Toolbar>
         </AppBar>

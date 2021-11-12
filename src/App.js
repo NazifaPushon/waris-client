@@ -7,7 +7,7 @@ import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import NotFound from './Pages/NotFound/NotFound';
-import Perchase from './Pages/Perchase/Perchase';
+import Purchase from './Pages/Purchase/Purchase';
 import PrivateRoute from './Routes/PrivateRoute/PrivateRoute';
 
 function App() {
@@ -34,8 +34,8 @@ function App() {
             <PrivateRoute path="/dashboard">
                 <Dashboard/>
             </PrivateRoute>
-            <PrivateRoute path="/perchase/:id">
-                <Perchase/>
+            <PrivateRoute path="/Purchase/:id">
+                <Purchase/>
             </PrivateRoute>
             <Route path="*">
                 <NotFound/>

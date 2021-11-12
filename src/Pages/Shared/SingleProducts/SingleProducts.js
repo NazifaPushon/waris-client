@@ -17,7 +17,7 @@ const SingleProducts = ({product}) => {
             <h3 className="my-3" style={{color:grey[800]}}>{name}</h3>
             <p style={{color:grey[600]}} className="fs-4 fw-bold">$ {price}</p>
             <p style={{color:grey[800] , fontSize:'17px'}}> {`${des.slice(0,70)}...`}</p>
-            <button className="button2" onClick={() => history.push(`/perchase/${_id}`)}>Perchase</button>
+            <button className="button2" onClick={() => history.push(`/Purchase/${_id}`)}>Buy Now</button>
             </Box>
             </Box>
         </Grid>
