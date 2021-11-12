@@ -7,6 +7,7 @@ import { useHistory, useLocation } from 'react-router';
 import { NavLink } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
+//this is login component 
 const Login = () => {
     const {login , singInWithGoogle} = useAuth()
     const history = useHistory()
@@ -23,6 +24,7 @@ const Login = () => {
             <div className="">
             <Box className="text-center p-5 border border-2 border-dark">
                 <Typography variant="h4">Login </Typography>
+                {/* form start */}
                 <form action="" onSubmit={handleSubmit(onSubmit)}  >
                     <TextField
                         id="email"
@@ -65,6 +67,7 @@ const Login = () => {
                         Login
                     </Button>
                 </form>
+                {/* form end */}
                 <Typography
                     variant="p"
                     sx={{

@@ -11,11 +11,15 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
+import BackBtn from '../../Shared/BackBtn/BackBtn';
+// this component will show all the orders of the users
 const ManageOrder = () => {
     const [orders , setOrders] = useState([])
     const [isUpdated , setIsUpdated] = useState(false)
+
+    //load orders
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://gentle-forest-49473.herokuapp.com/orders')
         .then(res => res.json())
         .then(data => {
           setIsUpdated(false)
@@ -23,12 +27,13 @@ const ManageOrder = () => {
         })
     } , [isUpdated])
 
+    //update order status 
     const handleUpdate = (id , order) => {
         const updatedOrder = {
           ...order,
           status:'shipped'
         }
-        fetch(`http://localhost:5000/updateOrder/${id}` , {
+        fetch(`https://gentle-forest-49473.herokuapp.com/updateOrder/${id}` , {
           method:"PUT",
           headers:{
             'content-type':'application/json'
@@ -41,6 +46,7 @@ const ManageOrder = () => {
         })
     }
 
+    // handle deleting order
     const handleDelete = (id) => {
       Swal.fire({
         icon:'warning',
@@ -48,7 +54,7 @@ const ManageOrder = () => {
         confirmButtonText: 'Yes',
       }).then((result) => {
         if (result.isConfirmed) {
-          fetch(`http://localhost:5000/deleteOrder/${id}`,{
+          fetch(`https://gentle-forest-49473.herokuapp.com/deleteOrder/${id}`,{
             method:"DELETE",
           }).then(res => res.json())
             .then(data => {
@@ -61,9 +67,10 @@ const ManageOrder = () => {
       })
       
     }
+    // order table
     return (
-        <div>
-            <h1>some users wil show here</h1>
+        <div className="text-center">
+            <h1>All User's Order</h1>
             <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
@@ -100,6 +107,7 @@ const ManageOrder = () => {
         </TableBody>
       </Table>
     </TableContainer>
+    <BackBtn/>
         </div>
     );
 };

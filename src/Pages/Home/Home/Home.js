@@ -7,6 +7,7 @@ import Banner from '../Banner/Banner';
 import OfferBanner from '../OfferBanner/OfferBanner';
 import Reviews from '../Reviews/Reviews';
 
+// this is the container component for home page
 const Home = () => {
     return (
         <div>

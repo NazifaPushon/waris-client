@@ -6,9 +6,12 @@ import { useForm } from "react-hook-form";
 import { useHistory, useParams } from "react-router";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import BackBtn from "../Shared/BackBtn/BackBtn";
 import Footer from "../Shared/Footer/Footer";
 import Header from "../Shared/Header/Header";
 
+//this is a perchase page 
+//use to perchase a watch
 const Perchase = () => {
     const history = useHistory();
     const inputStyle = {
@@ -25,21 +28,25 @@ const Perchase = () => {
     const [product, setProduct] = useState({});
     const {name , price ,des ,img} = product
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
+
+    //load data from server
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${id}`)
+        fetch(`https://gentle-forest-49473.herokuapp.com/products/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 setProduct(data);
                 console.log(data);
             });
     }, [id]);
+
+    // save data in server
     const onSubmit = (data) => {
         const order = {
             ...data,
             status:'pending',
             product:product
         }
-        fetch('http://localhost:5000/orders' , {
+        fetch('https://gentle-forest-49473.herokuapp.com/orders' , {
             method:"POST",
             headers: {
                 'content-type':'application/json'
@@ -62,7 +69,7 @@ const Perchase = () => {
         <div>
             <Header/>
             <Container className="my-5">
-                <Grid container spacing={4}>
+                <Grid container spacing={4} className="align-items-center">
                     <Grid item xs={12} md={6}>
                         <Box className="p-3 border" style={{fontSize:'18px'}}>
                             <img alt="" src={img} className="w-100"/>
@@ -136,6 +143,7 @@ const Perchase = () => {
                 ></Box>
                     </Grid>
                 </Grid>
+                <BackBtn/>
             </Container>
             <Footer/>
         </div>

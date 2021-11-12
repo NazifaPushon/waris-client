@@ -3,7 +3,9 @@ import { Box } from "@mui/system";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
+import BackBtn from "../../Shared/BackBtn/BackBtn";
 
+//this is a review component
 const Review = () => {
     const [review , setReview] = useState({})
     const {user} = useAuth()
@@ -15,6 +17,7 @@ const Review = () => {
       setReview(newReview)
      console.log(newReview);
   };
+  //handle the form and save in database
   const handleSubmit = e => {
     e.preventDefault();
     const newReview = {
@@ -22,7 +25,7 @@ const Review = () => {
       name : user.displayName,
       email:user.email,
     }
-    fetch('http://localhost:5000/review' , {
+    fetch('https://gentle-forest-49473.herokuapp.com/review' , {
       method:"POST",
       headers:{
         'content-type':'application/json'
@@ -63,6 +66,7 @@ const Review = () => {
         <br />
         <button type="submit" className="button2">Submit</button>
       </form>
+      <BackBtn/>
     </Box>
   );
 };

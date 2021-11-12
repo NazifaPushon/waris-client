@@ -2,6 +2,7 @@ import { Grid } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 
+// this componet gets data from myoder component
 const SingleOrder = ({order , handleClick}) => {
     const {name , email , address , phone , product , _id , status} = order
     const {name : productName , img , price} = product

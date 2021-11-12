@@ -2,11 +2,13 @@ import { Container, Grid, Rating, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import './review.css';
+// this component shows the review 
 const Reviews = () => {
     const [reviews, setReviews] = useState([])
 
+    //load all the reviews
     useEffect(() => {
-        fetch('http://localhost:5000/review')
+        fetch('https://gentle-forest-49473.herokuapp.com/review')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])

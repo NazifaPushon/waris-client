@@ -2,9 +2,11 @@ import { Container, Grid, Typography } from '@mui/material';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './offerBanner.css';
+
+// this is a simple offering banner component
 const OfferBanner = () => {
     return (
-        <div className="offer">
+        <section className="offer">
             <Container>
             <Grid container >
                 <Grid item xs={12} md={6}>
@@ -20,7 +22,7 @@ const OfferBanner = () => {
                 <Grid item xs={12} md={6}></Grid>
             </Grid>
             </Container>
-        </div>
+        </section>
     );
 };
 

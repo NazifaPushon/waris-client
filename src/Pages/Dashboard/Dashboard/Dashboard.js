@@ -30,8 +30,9 @@ import Review from '../Review/Review';
 
 const drawerWidth = 240;
 
+// this is the dashboard for user and admin
 function Dashboard(props) {
-  const {admin , logout} = useAuth()
+  const { admin, logout } = useAuth()
   const history = useHistory()
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -41,21 +42,18 @@ function Dashboard(props) {
     setMobileOpen(!mobileOpen);
   };
 
+  // drawer of the dash board
   const drawer = (
     <div className="text-center">
-      <Toolbar/>
+      <Toolbar />
       <Divider />
-        <List>
-        <Button  style={{background:grey[900] , color:"white" ,margin:'0 1rem', padding:'0.5rem 1rem'}} color="inherit" onClick={() => logout(history)}>
-                     Log Out
-            </Button>
-            <ListItem className="text-center">
-            <ListItemText><Link to='/' className="text-dark">Home</Link></ListItemText>
-          </ListItem>
-        
+      <List>
+        <Button style={{ background: grey[900], color: "white", margin: '0 1rem', padding: '0.5rem 1rem' }} color="inherit" onClick={() => logout(history)}>
+          Log Out
+        </Button>
         {admin ? <>
           <ListItem className="text-center">
-            <ListItemText><Link to={`${url}`} className="text-dark">Manage User</Link></ListItemText>
+            <ListItemText><Link to={`${url}`} className="text-dark">Manage All Orders</Link></ListItemText>
           </ListItem>
           <ListItem className="text-center">
             <ListItemText><Link to={`${url}/addProduct`} className="text-dark">Add Product</Link></ListItemText>
@@ -66,114 +64,115 @@ function Dashboard(props) {
           <ListItem className="text-center">
             <ListItemText><Link to={`${url}/manageProducts`} className="text-dark">Manage Products</Link></ListItemText>
           </ListItem>
-          </>
-        : <>
-          
+        </>
+          : <>
+
             <ListItem className="text-center">
               <ListItemText><Link to={`${url}`} className="text-dark">My Order</Link></ListItemText>
             </ListItem>
             <ListItem className="text-center">
-            <ListItemText><Link to={`${url}/payment`} className="text-dark">Payment</Link></ListItemText>
+              <ListItemText><Link to={`${url}/payment`} className="text-dark">Payment</Link></ListItemText>
             </ListItem>
             <ListItem className="text-center">
-            <ListItemText><Link to={`${url}/review`} className="text-dark">Review</Link></ListItemText>
+              <ListItemText><Link to={`${url}/review`} className="text-dark">Review</Link></ListItemText>
             </ListItem>
-        </> }
-        </List>
+          </>}
+      </List>
       <Divider />
     </div>
   );
 
   const container = window !== undefined ? () => window().document.body : undefined;
-
+  
   return (
     <Box>
       <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },
-          background:grey[900]
-        }}
-      >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+        <CssBaseline />
+        <AppBar
+          position="fixed"
+          sx={{
+            width: { sm: `calc(100% - ${drawerWidth}px)` },
+            ml: { sm: `${drawerWidth}px` },
+            background: grey[900]
+          }}
+        >
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { sm: 'none' } }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" noWrap component="div">
+              Responsive drawer
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <Box
+          component="nav"
+          sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+          aria-label="mailbox folders"
+        >
+          {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+          <Drawer
+            container={container}
+            variant="temporary"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            ModalProps={{
+              keepMounted: true, // Better open performance on mobile.
+            }}
+            sx={{
+              display: { xs: 'block', sm: 'none' },
+              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            }}
           >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Responsive drawer
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Box
-        component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-        aria-label="mailbox folders"
-      >
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-          }}
+            {drawer}
+          </Drawer>
+          <Drawer
+            variant="permanent"
+            sx={{
+              display: { xs: 'none', sm: 'block' },
+              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            }}
+            open
+          >
+            {drawer}
+          </Drawer>
+        </Box>
+        <Box
+          component="main"
+          sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
         >
-          {drawer}
-        </Drawer>
-        <Drawer
-          variant="permanent"
-          sx={{
-            display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-          }}
-          open
-        >
-          {drawer}
-        </Drawer>
+          <Toolbar />
+          <Switch>
+            {/* Routing settings */}
+            {admin ? <Route exact path={path}>
+              <ManageOrder />
+            </Route> : <Route exact path={path}>
+              <MyOrders />
+            </Route>}
+            <Route path={`${path}/payment`}>
+              <Payment />
+            </Route>
+            <Route path={`${path}/review`}>
+              <Review />
+            </Route>
+            <AdminRoute path={`${path}/addProduct`}>
+              <AddProduct />
+            </AdminRoute>
+            <AdminRoute path={`${path}/makeAdmin`}>
+              <MakeAdmin />
+            </AdminRoute>
+            <AdminRoute path={`${path}/manageProducts`}>
+              <ManageProducts />
+            </AdminRoute>
+          </Switch>
+        </Box>
       </Box>
-      <Box
-        component="main"
-        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
-      >
-        <Toolbar />
-        <Switch>
-        {admin ?  <Route exact path={path}>
-              <ManageOrder/>
-        </Route> : <Route exact path={path}>
-          <MyOrders/>
-        </Route>}
-        <Route path={`${path}/payment`}>
-          <Payment/>
-        </Route>
-        <Route path={`${path}/review`}>
-          <Review/>
-        </Route>
-        <AdminRoute path={`${path}/addProduct`}>
-          <AddProduct/>
-        </AdminRoute>
-        <AdminRoute path={`${path}/makeAdmin`}>
-          <MakeAdmin/>
-        </AdminRoute>
-        <AdminRoute path={`${path}/manageProducts`}>
-          <ManageProducts/>
-        </AdminRoute>
-      </Switch>
-      </Box>
-    </Box>
     </Box>
   );
 }

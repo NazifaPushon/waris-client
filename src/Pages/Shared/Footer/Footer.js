@@ -1,6 +1,7 @@
 import { Container } from '@mui/material';
 import React from 'react';
 
+// this is a simple footer component
 const Footer = () => {
     return (
         <div className="bg-dark text-light text-center">

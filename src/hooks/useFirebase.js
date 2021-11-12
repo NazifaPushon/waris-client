@@ -11,6 +11,8 @@ const useFirebase = () => {
     const [isLoading , setIsLoading] = useState(true)
     const [admin , setAdmin] = useState(false)
     const [error,setError] = useState('')
+
+    //set every user update
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -24,8 +26,9 @@ const useFirebase = () => {
 
     }, [auth])
 
+    //load is admin
     useEffect(() => {
-        fetch(`http://localhost:5000/users/${user.email}`)
+        fetch(`https://gentle-forest-49473.herokuapp.com/users/${user.email}`)
         .then(res => res.json())
         .then(data =>{
             console.log(data)
@@ -33,6 +36,7 @@ const useFirebase = () => {
         })
     } , [user])
 
+    // register a user
     const registerUser = (email, password , name , location , history) => {
         setIsLoading(true)
         createUserWithEmailAndPassword(auth, email, password)
@@ -67,7 +71,7 @@ const useFirebase = () => {
 
     }
 
-
+    //sing in via google
     const singInWithGoogle = (location, history)  => {
         const googleProvider = new GoogleAuthProvider();
         signInWithPopup(auth,googleProvider)
@@ -86,6 +90,7 @@ const useFirebase = () => {
         }).finally(() => setIsLoading(false));
     }
 
+    //log out an user
     const logout = (history) => {
         setIsLoading(true)
         signOut(auth).then(() => {
@@ -106,6 +111,7 @@ const useFirebase = () => {
         }).finally(() => setIsLoading(false));
     }
 
+    //login a user
     const login = (email, password , location , history) => {
         setIsLoading(true)
         signInWithEmailAndPassword(auth, email, password)
@@ -127,9 +133,10 @@ const useFirebase = () => {
 
     }
 
+    //save a user in database
     const saveUser = (email , displayName ,method) => {
         const user = {email , displayName}
-        fetch('http://localhost:5000/users' , {
+        fetch('https://gentle-forest-49473.herokuapp.com/users' , {
             method: method,
             headers: {
                 'Content-Type':'application/json'

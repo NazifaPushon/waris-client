@@ -4,6 +4,8 @@ import { useHistory } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
+// this is the header component 
+// this is build by cdn bootstrap
 const Header = () => {
   const style = {
     textDecoration: 'none',

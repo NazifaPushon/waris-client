@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import Footer from '../Shared/Footer/Footer';
 import Header from '../Shared/Header/Header';
 import './notFound.css';
+// this is a simple not found page
 const NotFound = () => {
     return (
         <div>

@@ -2,17 +2,20 @@ import { Container, Grid } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import useAuth from '../../../hooks/useAuth';
+import BackBtn from '../../Shared/BackBtn/BackBtn';
 import SingleOrder from '../SingleOrder/SingleOrder';
 
+// this componenet will show the Order of a single user
 const MyOrders = () => {
     const {user} = useAuth()
     const [orders,setOrders] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/orders/${user.email}`)
+        fetch(`https://gentle-forest-49473.herokuapp.com/orders/${user.email}`)
         .then(res => res.json())
         .then(data => setOrders(data))
     } , [user.email])
 
+    //delete a order
     const handleClick = (id) => {
         Swal.fire({
             icon:'warning',
@@ -20,7 +23,7 @@ const MyOrders = () => {
             confirmButtonText: 'Yes',
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/deleteOrder/${id}` , {
+                fetch(`https://gentle-forest-49473.herokuapp.com/deleteOrder/${id}` , {
                     method:"DELETE"
                 }).then(res => res.json())
                 .then(data => {
@@ -43,6 +46,7 @@ const MyOrders = () => {
                     
                 }
             </Grid>
+            <BackBtn/>
         </Container>
     );
 };

@@ -4,11 +4,13 @@ import { Box } from '@mui/system';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
+import BackBtn from '../../Shared/BackBtn/BackBtn';
 
+// THis component is for adding a product by admin
 const AddProduct = () => {
     const { register , handleSubmit,  formState: { errors } , reset} = useForm();
     const onSubmit = (data) => {
-        fetch('http://localhost:5000/addProducts' , {
+        fetch('https://gentle-forest-49473.herokuapp.com/addProducts' , {
             method:'POST',
             headers:{
                 'content-type':'application/json'
@@ -39,6 +41,7 @@ const AddProduct = () => {
       >
         <Box>
           <Typography variant="h4">Add a new product</Typography>
+          {/* form start */}
           <form action="" onSubmit={handleSubmit(onSubmit)}>
             <TextField
               id="name"
@@ -87,8 +90,10 @@ const AddProduct = () => {
               Submit
             </Button>
           </form>
+          {/* form end */}
         </Box>
       </Box>
+      <BackBtn/>
     </Container>
         </Box>
     );

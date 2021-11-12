@@ -2,11 +2,12 @@ import { Container, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import SingleProducts from '../SingleProducts/SingleProducts';
 
+// this component load product for home page and explore page
 const Products = ({isLimited}) => {
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://gentle-forest-49473.herokuapp.com/products')
         .then(res => res.json())
         .then(data => { 
             if(isLimited) {

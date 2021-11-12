@@ -4,11 +4,15 @@ import { Box } from '@mui/system';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
+import BackBtn from '../../Shared/BackBtn/BackBtn';
 
+// this component is making an user admin
 const MakeAdmin = () => {
     const { register , handleSubmit,  formState: { errors } , reset} = useForm();
+
+    //submitting form and call api
     const onSubmit = data => {
-        fetch('http://localhost:5000/users/admin' , {
+        fetch('https://gentle-forest-49473.herokuapp.com/users/admin' , {
             method:"PUT",
             headers:{
                 'Content-Type': 'application/json'
@@ -43,6 +47,7 @@ const MakeAdmin = () => {
                 {errors.email && <span>Email is required</span>}
                 <Button type="submit" style={{background:grey[900] , color:"white" ,margin:'0 1rem' ,padding:'0.5rem 1rem'}} color="inherit">Submit</Button>
                 </form>
+                <BackBtn/>
             </Container>
         </Box>
     );

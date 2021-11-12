@@ -7,6 +7,7 @@ import { useHistory, useLocation } from 'react-router';
 import { NavLink } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
+// this is the register component
 const Register = () => {
     const {registerUser , singInWithGoogle} = useAuth()
     const history = useHistory()
@@ -32,6 +33,7 @@ const Register = () => {
       >
         <Box className="text-center">
           <Typography variant="h4">Create Account</Typography>
+          {/* form start */}
           <form action="" onSubmit={handleSubmit(onSubmit)} className="text-center ">
             <TextField
               id="name"
@@ -78,6 +80,7 @@ const Register = () => {
               Register
             </Button>
           </form>
+          {/* form end */}
           <Typography variant="p" sx={{ textAlign: "center" }} component="div">
             <NavLink to="/login" style={{ color: grey[900] }}>
               Already has an account ? login

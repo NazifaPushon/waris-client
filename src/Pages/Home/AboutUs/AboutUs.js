@@ -1,7 +1,9 @@
-import { Container, Grid, Link, Typography } from '@mui/material';
+import { Container, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
+// this is a static about us component
 const AboutUs = () => {
     return (
         <Container className="my-5 py-5">
